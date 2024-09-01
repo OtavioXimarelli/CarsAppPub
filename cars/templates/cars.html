@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static  %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Carros</title>
+    <link rel="stylesheet" href="{% static 'css/cars.css' %}">
+</head>
+<body>
+    <main>
+            <form method="GET" action="{% url 'cars_list' %}">
+                <input type="text" name="search" placeholder="Buscar carro..." aria-label="Campo de busca para carros">
+                <button type="submit" aria-label="Botão de busca">Buscar</button>
+            </form>
+
+              <div class="car-grid">
+                {% if cars %}
+                  {% for car in cars %}
+                    <a href="{% url 'car_details' car.pk %}">
+                      <div class="car-card">
+                        {% if car.photo %}
+                          <img src="{{ car.photo.url }}" alt="{{ car.model }} - {{ car.brand }}">
+                        {% else %}
+                         <p class="no-photo">Foto não disponivel</p>
+                        {% endif %}
+                        <h2>{{ car.brand }} {{ car.model }}</h2>
+                        <p>{{ car.factory_year }} - R$ {{ car.value }}</p>
+                      </div>
+                    </a>
+                  {% endfor %}
+                {% else %}
+                  <p class="no-results">Nenhum carro encontrado.</p>
+                {% endif %}
+              </div>
+            {% endblock %}

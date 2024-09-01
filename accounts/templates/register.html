@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER</title>
+    <link rel="stylesheet" href="{% static 'static/css/register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form class="form" method="post">
+            {% csrf_token %}
+            <p class="title">Registre-se</p>
+            <p class="message">Crie sua conta para acessar todas as funcionalidades.</p>
+
+            <div class="flex">
+                {{ registration_form.username.errors }}
+                <label for="id_username">Usuário:</label>
+                {{ registration_form.username }}
+            </div>
+
+            <div class="flex">
+                {{ registration_form.password1.errors }}
+                <label for="id_password1">Senha:</label>
+                {{ registration_form.password1 }}
+            </div>
+
+            <div class="flex">
+                {{ registration_form.password2.errors }}
+                <label for="id_password2">Confirme a senha:</label>
+                {{ registration_form.password2 }}
+            </div>
+
+            <button class="submit">Enviar</button>
+            <p class="signin">Já tem uma conta? <a href="{% url 'login' %}">Entre</a></p>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

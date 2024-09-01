@@ -1,0 +1,109 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #050505;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4a1c9f;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    display: flex; /* Add display: flex to align content */
+    justify-content: space-between; /* Align content between start and end */
+  }
+  
+  footer {
+    background-color: #7a8090aa;
+    color: #333;
+    padding: 5px; /* Reduced padding */
+    font-size: 17px;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 9px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #241c9f;
+  }
+  
+  nav ul li.active a {
+    background-color: #666;
+  }
+  
+  nav ul li.active a:hover {
+    background-color: #999;
+  }
+  
+  #login {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  #login ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  #login ul li {
+    margin: 0 10px;
+  }
+  
+  #login ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  #login ul li a:hover {
+    background-color: #241c9f;
+  }
+  
+  #login ul li.active a {
+    background-color: #666;
+  }
+  
+  #login ul li.active a:hover {
+    background-color: #999;
+  }
+
+.user-name {
+    display: flex;
+    align-items: center;
+}
+
+  /* From Uiverse.io by adamgiebl */ 
+.container {
+    width: 100%;
+    height: 100%;
+    --color: rgba(114, 114, 114, 0.3);
+    background-color: #191a1a;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    background-size: 55px 55px;
+  }

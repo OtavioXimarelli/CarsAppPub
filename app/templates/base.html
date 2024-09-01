@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+  <div class="container">
+      <header>
+        <nav>
+          <ul>
+            <li><a href="{% url 'cars_list' %}">Carros</a></li>
+            {% if user.is_authenticated %}
+              <li class="user-name">Olá {{ user.username }}</li>
+              <li><a href="{% url 'new_car' %}">Cadastrar novo carro</a></li>
+              <li><a href="{% url 'logout' %}">Sair</a></li>
+              {% endif %}
+          </ul>
+        </nav>
+        <nav id="login">
+          <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'login' %}">Entar em sua conta</a></li>
+            <li><a href="{% url 'register' %}">Registre-se</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+
+      <footer>
+        <p><a id="git" target="_blank" href="https://github.com/OtavioXimarelli">Otavio Ximarelli :)</a></p>
+      </footer>
+    </body>
+  </div>
+</html>
